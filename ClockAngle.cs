@@ -6,9 +6,10 @@ public class Clock
   {
     Console.WriteLine("Please enter a time (e.g., 02:30)");
     string stringInputTime = Console.ReadLine();
-    GetDegrees(stringInputTime);
+    double degrees = GetDegrees(stringInputTime);
+    Console.WriteLine(degrees);
   }
-  public static void GetDegrees(string stringInputTime)
+  public static double GetDegrees(string stringInputTime)
   {
     string [] split = stringInputTime.Split(new Char [] {':'});
     double inputHour = int.Parse(split[0]);
@@ -18,11 +19,11 @@ public class Clock
     double degreeDiff = Math.Abs(hourHandDeg - minuteHandDeg);
     if (degreeDiff > 180)
     {
-      Console.WriteLine(360 - degreeDiff);
+      return 360 - degreeDiff;
     }
     else
     {
-      Console.WriteLine(degreeDiff);
+      return degreeDiff;
     }
   }
 }
