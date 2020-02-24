@@ -6,14 +6,14 @@ public class Clock
   {
     Console.WriteLine("Please enter a time (e.g., 02:30)");
     string stringInputTime = Console.ReadLine();
-    double degrees = GetDegrees(stringInputTime);
-    Console.WriteLine(degrees);
+    double degreesBetweenClockHands = GetDegrees(stringInputTime);
+    Console.WriteLine(degreesBetweenClockHands);
   }
   public static double GetDegrees(string stringInputTime)
   {
-    string [] split = stringInputTime.Split(new Char [] {':'});
-    double inputHour = int.Parse(split[0]);
-    int inputMinutes = int.Parse(split[1]);
+    string [] splitTime = stringInputTime.Split(new Char [] {':'});
+    double inputHour = int.Parse(splitTime[0]);
+    int inputMinutes = int.Parse(splitTime[1]);
     double hourHandDeg = (inputHour * 30) + (inputMinutes * 0.5);
     int minuteHandDeg = inputMinutes * 6;
     double degreeDiff = Math.Abs(hourHandDeg - minuteHandDeg);
